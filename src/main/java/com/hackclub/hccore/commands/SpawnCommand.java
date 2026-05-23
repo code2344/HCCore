@@ -86,11 +86,13 @@ public class SpawnCommand extends ArgumentlessCommand implements CommandExecutor
 
       // Finds a safe spawn location near the world spawn to counter holes/pits/etc
       Block highestSpawnBlock = world.getHighestBlockAt(spawnX, spawnZ);
+      int highestSpawnY = world.getSpawnLocation().getBlockY();
       int safeY = -1;
 
       // Search downward from the highest block to find a safe spawn point
       // +1 cause we need to check the block above, not inside
       for (int y = highestSpawnBlock.getY() + 1; y > world.getMinHeight(); y--) {
+        if (y > highestSpawnY) continue;
         Block blockAtY = world.getBlockAt(spawnX, y, spawnZ);
         Block blockBelow = world.getBlockAt(spawnX, y - 1, spawnZ);
         Block blockAbove = world.getBlockAt(spawnX, y + 1, spawnZ);
