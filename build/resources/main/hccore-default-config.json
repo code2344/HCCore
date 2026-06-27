@@ -1,0 +1,12 @@
+{
+  "slackLink": {
+    "enabled": false,
+    "required": false,
+    "linkCodeExpirationSeconds": 600,
+    "botToken": "",
+    "signingSecret": "",
+    "channelId": "",
+    "baseCommand": "minecraft",
+    "slackJoinUrl": "https://slack.hackclub.com"
+  }
+}
